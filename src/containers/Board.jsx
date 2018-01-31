@@ -5,12 +5,41 @@ import TaskCard from '../components/TaskCard';
 
 import FlatButton from 'material-ui/FlatButton';
 
-const boardData = require('./board.data');
-
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = boardData;
+		this.state = {
+		  "lists": [
+		    {
+		      "id": "5a7245d05a99b5a0f34e1db7",
+		      "title": "Backlog",
+		      "tasks": [
+		        {
+		          "id": "abcdef0",
+		          "title": "Remember the Milk!"
+		        },
+		        {
+		          "id": "abcdef1",
+		          "title": "Read reactpatterns.com"
+		        },
+		        {
+		          "id": "abcdef2",
+		          "title": "Complete Assignment"
+		        }
+			  ]
+			},
+			{
+				id: '5a7245d05a99b5a0f34e1db8',
+				title: 'In Progress',
+				tasks: []
+			},
+			{
+				id: '5a7245d05a99b5a0f34e1db8',
+				title: 'Complete',
+				tasks: []
+			}
+		  ]
+		}
 	}
 
 	render() {
