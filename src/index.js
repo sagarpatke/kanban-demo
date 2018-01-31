@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import App from './containers/App';
+import Board from './containers/Board';
 
 require('./index.css');
 
@@ -14,5 +14,5 @@ const styles = {
 }
 
 ReactDOM.render(<MuiThemeProvider>
-	<App />
+	<Board />
 </MuiThemeProvider>, document.getElementById('root'));
