@@ -6,6 +6,8 @@ import Subheader from 'material-ui/Subheader';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
+import VirtualizedList from 'react-virtualized/dist/commonjs/List';
+
 export default class TaskList extends Component {
 	constructor(props) {
 		super(props);
@@ -57,6 +59,17 @@ export default class TaskList extends Component {
 			);
 		}) : null;
 
+		const listRenderer = ({
+			index,
+			style
+		}) => {
+			return (
+				<div style={style}  key={index}> {/*FIXME: Use appropriate key here*/}
+					{this.props.children[index]}
+				</div>
+			);
+		};
+
 		return (
 			<List style={{backgroundColor: '#e4e4e4', padding: '5px 10px', borderRadius: '3px'}}>
 				<Subheader>
@@ -69,7 +82,15 @@ export default class TaskList extends Component {
 						onKeyUp={(event) => {this.handleTitleKeyUp(event)}}
 					/>
 				</Subheader>
-				{listItems}
+				{/*listItems*/}
+				<VirtualizedList
+					width={300}
+					height={400}
+					rowCount={this.props.children.length}
+					overscanRowCount={5}
+					rowHeight={80}
+					rowRenderer={listRenderer}
+				/>
 				{this.props.footer || null}
 			</List>
 		);

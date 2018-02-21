@@ -62,6 +62,8 @@ export default class TaskCard extends Component {
 					value={this.state.value}
 					fullWidth
 					multiLine
+					rows={2}
+					rowsMax={2}
 					onChange={(event, newValue) => this.handleChange(event, newValue)}
 					onKeyUp={(event) => this.handleKeyUp(event)}
 					underlineStyle={{borderColor: 'white'}}
